@@ -58,14 +58,12 @@ button:disabled {
   width: 100%;
 }
 
-.card { 
-  perspective: 1000px;
-  width: auto;       /* allow card to fit image */
-  height: auto; 
+.card { perspective: 1000px;
+       height: 60vh;  
 }
 
 .inner {
-  display: inline-block;
+  height: 100%;
   transition: transform 0.8s;
   transform-style: preserve-3d;
   position: relative;
@@ -79,19 +77,16 @@ button:disabled {
   position: absolute;
   width: 100%;
   height: 100%;
-  border-radius: 0;
+  border-radius: 15px;
   backface-visibility: hidden;
   overflow: hidden;
-
 }
 
 .front img {
-  width: auto;
-  height: auto;
-  max-width: 100%;   /* image won’t exceed container width */
-  max-height: 100vh;  /* optional: prevent it from going off-screen */
-  display: block;
-  margin: 0 auto;  
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: black; 
 }
 
 .front p {
@@ -104,26 +99,21 @@ button:disabled {
   font-size: 18px;
   line-height: 1.5;
   text-align: center;
-  color: #fff;
-  white-space: pre-line;
+  white-space: pre-line; 
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); /* always centered */
 }
+
+
 .back {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.5); /* optional semi-transparent overlay */
-  display: flex;
+  background: rgba(0,0,0,0.7);
   transform: rotateY(180deg);
-  justify-content: center;
+  display: flex;
   align-items: center;
+  justify-content: center;
   padding: 15px;
-  border-radius: 0; /* optional, can remove */    
 }
 
 .nextBtn {
